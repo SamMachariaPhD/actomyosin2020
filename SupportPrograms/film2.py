@@ -145,39 +145,12 @@ text1Display.Bold = 0
 #ruler1.Point1 = [3.0, -2.0, 0.0]
 #ruler1.Point2 = [2.0, -2.0, 0.0]
 
-
 # current camera placement for renderView1
 #renderView1.CameraPosition = [5.566566450844984, -3.271004214234651, 18.733021468562196]
 #renderView1.CameraFocalPoint = [5.566566450844984, -3.271004214234651, 0.012500000186264515]
 # reset view to fit data
 #renderView1.ResetCamera(0.0,x_max,y_min,0.0,x_min,y_max)
 #renderView1.CameraParallelScale = 1.5
-
-"""
-
-for i in range(0,tStep+1):
-    x_max = conf[head:tail]['x'].max()
-    x_min = conf[head:tail]['x'].min()
-    y_max = conf[head:tail]['y'].max()
-    y_min = conf[head:tail]['y'].min()
-    xomax = conf[headO:tailO]['x'].max()
-    xomin = conf[headO:tailO]['x'].min()
-    yomax = conf[headO:tailO]['y'].max()
-    yomin = conf[headO:tailO]['y'].min()
-    #renderView1.CameraPosition = [3.4706823391592447, 0.012688785958892527, 2.0100565924791938]# [x_max, y_max, 2.0100565924791938]#
-    #renderView1.CameraFocalPoint = [3.4706823391592447, 0.012688785958892527, 2.0100565924791938]# [x_max, y_max, 2.0100565924791938]#[3.4706823391592447, 0.012688785958892527, 2.0100565924791938]
-    renderView1.ResetCamera(0.0,xomax,yomin,0.0,xomin,yomax)
-    renderView1.CameraParallelScale = 0.5 #1.5 or 2.9
-    SaveScreenshot(results_dir+'/'+film_name+str(count)+'.png', magnification=1, quality=100, view=renderView1)
-    animationScene1.GoToNext()
-    head += beads
-    tail += beads
-    count += 1
-
-# save animation images/movie
-#WriteAnimation(results_dir+'/'+film_name+'.avi', Magnification=1, FrameRate=7.0, Quality=70, Compression=True)
-
-"""
 #===================================================================================================
 # create a key frame
 keyFrame4787 = CameraKeyFrame()
