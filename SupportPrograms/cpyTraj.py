@@ -17,6 +17,6 @@ dirlist = glob.glob(current_path+'/*/')
 dirlist = sorted(dirlist, key=lambda x:x[-18:])
 
 for i in dirlist:
-    os.chdir(i)
+    os.chdir(i); print(i)
     shutil.copy2(filename,current_path+'/'+'TipXY'+str(np.round(md,1))+'seed'+str(seed)+'.txt')
     md=md+0.1
