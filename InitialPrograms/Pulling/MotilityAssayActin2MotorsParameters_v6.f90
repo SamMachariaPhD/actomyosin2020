@@ -20,7 +20,7 @@ INTEGER, PARAMETER ::		Range15 = SELECTED_INT_KIND(15), &
 				MaxInteractinNum = 1, & !Maximum Number of MTs which a complex can interact with
 				seed = 273 !97845 !445 !78448 !657 !2215 !78448 !7484541 !4397 ! 242, 6990, 52804, 2072544
 
-INTEGER(KIND = Range15), PARAMETER :: NumTimeStep = 2.0E6, TimeStepEquil = 1E9, MaxNumParticles = 1E6, TimeForceON = 1E9
+INTEGER(KIND = Range15), PARAMETER :: NumTimeStep = 6E6, TimeStepEquil = 1E9, MaxNumParticles = 1E6, TimeForceON = 1E9
 
 INTEGER, PARAMETER :: MaxAreaNum = NumTimeStep/AreaRenewDiv + 1
 

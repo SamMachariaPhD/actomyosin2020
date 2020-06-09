@@ -1,6 +1,7 @@
 # prepared by Sam. feel free to consult (sirmaxford@gmail.com).
 import fileinput, sys, shutil, os, time, socket, subprocess
 
+Dt = 5e-7
 max_comp_simulations = 11
 
 files = ['MotilityAssayActin2MotorsParameters_v5.f90', 'MotilityAssayConfinements_v1.f90', \
@@ -34,14 +35,16 @@ else:
 
 simulation_runs = simulations
 simulations_counter = 0
+dir_arr = []
 
 while simulation_runs > 0:
     params = open('param_set.txt')
     read_params = params.readlines()
-    species_ratio, beads_number, ATP_value, MD_value = map(float,read_params[simulations_counter].split(',')) #dynamic parameters based on .txt file
+    species_ratio, beads_number, ATP_value, MD_value, seed, simul_tym_sec = map(float,read_params[simulations_counter].split(',')) #dynamic parameters based on .txt file
     params.close()
     #species_ratio, beads_number, ATP_value, MD_value = map(float,input().split(',')) #Bad. I have to enter each param.
-    new_dir = 'R'+str(species_ratio)+'B'+str(beads_number)+'ATP'+str(ATP_value)+'MD'+str(MD_value) #dynamic folder name
+    new_dir = 'R'+str(species_ratio)+'B'+str(int(float(beads_number)))+'ATP'+str(int(float(ATP_value)))+'MD'+str(int(float(MD_value)))+'S'+str(int(float(seed)))+'T'+str(int(float(simul_tym_sec))) #dynamic folder name
+    dir_arr.append(new_dir)
     os.chdir(dir_name)
     os.mkdir(new_dir)
     #print ("=> New folder successfully created: %s " % new_dir) #print outs for debugging
@@ -54,11 +57,15 @@ while simulation_runs > 0:
     for i, line in enumerate(fileinput.input(param_file, inplace=1)):
         sys.stdout.write(line.replace('Species1Ratio = 0.60', 'Species1Ratio = '+str(species_ratio)))
     for i, line in enumerate(fileinput.input(param_file, inplace=1)):
-        sys.stdout.write(line.replace('NumBeads = 13', 'NumBeads = '+str(beads_number)))
+        sys.stdout.write(line.replace('NumBeads = 13', 'NumBeads = '+str(int(float(beads_number))) ))
     for i, line in enumerate(fileinput.input(param_file, inplace=1)):
-        sys.stdout.write(line.replace('ATP = 2000.0', 'ATP = '+str(ATP_value)))
+        sys.stdout.write(line.replace('ATP = 2000.0', 'ATP = '+str(float(ATP_value)) ))
     for i, line in enumerate(fileinput.input(param_file, inplace=1)):
-        sys.stdout.write(line.replace('Motor_Density = 3000.0', 'Motor_Density = '+str(MD_value)))
+        sys.stdout.write(line.replace('Motor_Density = 3000.0', 'Motor_Density = '+str(float(MD_value)) ))
+    for i, line in enumerate(fileinput.input(param_file, inplace=1)):
+        sys.stdout.write(line.replace('seed = 273', 'seed = '+str(int(float(seed))) ))
+    for i, line in enumerate(fileinput.input(param_file, inplace=1)):
+        sys.stdout.write(line.replace('NumTimeStep = 6E6', 'NumTimeStep = '+str( int( int(float(simul_tym_sec))/(Dt) ) ) )) # NumTimeStep = T/Dt
     #print ("\n=> Param. file in %s successfully updated." % new_dir)
     #print ("\n=> Simulation program started!: %s" % new_dir)
     subprocess.call("ifort mt.f90 MotilityAssayActin2MotorsParameters_v5.f90 MotilityAssayConfinements_v1.f90 MotilityAssaySubstrateDeformation_v2.f90 MotilityAssayForceForceFunctions_v3.f90 MotilityAssayActin2MotorsMain_v9.f90", shell=True)
@@ -78,94 +85,33 @@ while simulation_runs > 0:
 
 print("\n=> All the %s simulations are successfully completed.\nDone!\n" %simulations)
 
-"""
-#-------------------------------PLOTTING THE OUTPUT DATA--------------------------------------------
-plot_runs = simulations
-plot_counter = 0
-plot_file = ['plot.py']
-ploting_file = "plot.py"
 
-try:
-    while plot_runs > 0:
-        params = open('param_set.txt')
-        read_params = params.readlines()
-        species_ratio, beads_number, ATP_value, MD_value = map(float,read_params[plot_counter].split(','))
-        params.close()
-        new_dir = 'R'+str(species_ratio)+'B'+str(beads_number)+'ATP'+str(ATP_value)+'MD'+str(MD_value)
-        print("\n=> Plotting results for %s " %new_dir)
-        for f in plot_file:
-            shutil.copy(f, dir_name+'/'+new_dir)
-        os.chdir(dir_name+'/'+new_dir)
-        for i, line in enumerate(fileinput.input(ploting_file, inplace=1)):
-            sys.stdout.write(line.replace("'Graph'", "'"+new_dir+"'"))
-        os.system('python3 plot.py')
-        plot_runs = plot_runs-1
-        plot_counter = plot_counter+1
-        os.chdir(current_path)
-        time.sleep(1)
-except (OSError, RuntimeError, TypeError, NameError):
-    print("Plotting script has an Error. ")
-    print("Plotting not completed. ")
-    pass
-
-#------------------------------------------------------------------------------------------------------
-
-#-------------------------------MAKE FILM FROM OUTPUT DATA--------------------------------------------
-film_runs = simulations
-film_counter = 0
-film_file = ['film.py']
-filming_file = "film.py"
-
-try:
-    while film_runs > 0:
-        params = open('param_set.txt')
-        read_params = params.readlines()
-        species_ratio, beads_number, ATP_value, MD_value = map(float,read_params[film_counter].split(','))
-        params.close()
-        new_dir = 'R'+str(species_ratio)+'B'+str(beads_number)+'ATP'+str(ATP_value)+'MD'+str(MD_value)
-        print("\n=> Making film for %s " %new_dir)
-        for f in film_file:
-            shutil.copy(f, dir_name+'/'+new_dir)
-        os.chdir(dir_name+'/'+new_dir)
-        for i, line in enumerate(fileinput.input(filming_file, inplace=1)):
-            sys.stdout.write(line.replace("'filament_film'", "'"+new_dir+"'"))
-        os.system('pvpython film.py')
-        film_runs = film_runs-1
-        film_counter = film_counter+1
-        os.chdir(current_path)
-        time.sleep(1)
-except (OSError, RuntimeError, TypeError, NameError):
-    print("Film script has an Error. ")
-    print("Film not completed. ")
-    pass
-
-#------------------------------------------------------------------------------------------------------
-"""
-
-os.chdir(dir_name+'/'+new_dir)
-#==============================================
-try:
-    os.system('python3 analysis.py')
-except (Exception, e):
-    print("Sorry, 'analysis.py' has an error.")
-    pass
-#==============================================
-try:
-    os.system('pvpython film1.py')
-except (Exception, e):
-    print("Sorry, 'film1.py' has an error.")
-    pass
-#==============================================
-try:
-    os.system('pvpython film2.py')
-except (Exception, e):
-    print("Sorry, 'film2.py' has an error.")
-    pass
-#==============================================
-try:
-    os.system('python3 tar.py')
-except (Exception, e):
-    print("Sorry, 'tar.py' has an error.")
-    pass
-#==============================================
+for dirr in dir_arr:
+    os.chdir(dir_name+'/'+dirr)
+    #==============================================
+    try:
+        os.system('python3 analysis.py')
+    except (Exception, e):
+        print("Sorry, 'analysis.py' has an error.")
+        pass
+    #==============================================
+    try:
+        os.system('pvpython film1.py')
+    except (Exception, e):
+        print("Sorry, 'film1.py' has an error.")
+        pass
+    #==============================================
+    try:
+        os.system('pvpython film2.py')
+    except (Exception, e):
+        print("Sorry, 'film2.py' has an error.")
+        pass
+    #==============================================
+    try:
+        os.system('python3 tar.py')
+    except (Exception, e):
+        print("Sorry, 'tar.py' has an error.")
+        pass
+    #==============================================
+    os.chdir(current_path)
 

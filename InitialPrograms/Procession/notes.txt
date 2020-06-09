@@ -11,7 +11,8 @@
     ...Deformation... .f90, ...Main... .f90, mt.f90
 > Open the 'param_set.txt' file and set the desired parameters as instructed in that file. Save changes.
 > simulate.py is, by default, set to run 5 simulations max. at a go. 
-> To change to x simulations, edit line 4 'max_comp_simulations = 5' to 'max_comp_simulations = x' where x=integer.
+> To change to x simulations, edit line 5 'max_comp_simulations = 5' to 'max_comp_simulations = x' where x=integer.
+> If you change the simulation Dt in parameters... .f90, change also the Dt in the simulate.py
 
 > Open terminal in that folder or $ cd into that folder.
 > Ensure that ifortran is installed.

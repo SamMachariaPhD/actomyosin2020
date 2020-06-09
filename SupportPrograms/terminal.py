@@ -1,27 +1,19 @@
+# Perform terminal commands via ssh
+# Regards, Sirmaxford
+
 import os,sys
+
 #==============================================
 try:
-    os.system("gnome-terminal -e 'python3 analysis.py' ")
-    #os.system('python3 analysis.py')
+    os.system("gnome-terminal -e 'python3 PC6.py' ")
 except (Exception, e):
-    print("Sorry, 'analysis.py' has an error.")
+    print("[!] 'PC6' has an error.")
     pass
 #==============================================
 try:
-    os.system("gnome-terminal -e 'pvpython film1.py' ")
+    os.system("gnome-terminal -e 'python3 PC7.py' ")
 except (Exception, e):
-    print("Sorry, 'film1.py' has an error.")
+    print("[!] 'PC7.py' has an error.")
     pass
 #==============================================
-try:
-    os.system("gnome-terminal -e 'pvpython film2.py' ")
-except (Exception, e):
-    print("Sorry, 'film2.py' has an error.")
-    pass
-#==============================================
-try:
-    os.system("gnome-terminal -e 'python3 tar.py' ")
-except (Exception, e):
-    print("Sorry, 'tar.py' has an error.")
-    pass
-#==============================================
+
