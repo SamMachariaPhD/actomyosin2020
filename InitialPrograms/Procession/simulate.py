@@ -1,5 +1,5 @@
 # prepared by Sam. feel free to consult (sirmaxford@gmail.com).
-import fileinput, sys, shutil, os, time, socket, subprocess
+import fileinput, sys, shutil, os, time, socket, subprocess, datetime
 
 Dt = 5e-7
 max_comp_simulations = 11
@@ -14,6 +14,8 @@ main_file = "MotilityAssayActin2MotorsMain_v9.f90"
 pc_hostname = socket.gethostname()
 date_today = time.strftime("%d-%m-%Y")
 dir_name = date_today+pc_hostname #dynamic folder based on date and PC used
+s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+s.connect(("8.8.8.8",80))
 
 current_path = os.getcwd()  
 
@@ -70,12 +72,22 @@ while simulation_runs > 0:
     #print ("\n=> Simulation program started!: %s" % new_dir)
     subprocess.call("ifort mt.f90 MotilityAssayActin2MotorsParameters_v5.f90 MotilityAssayConfinements_v1.f90 MotilityAssaySubstrateDeformation_v2.f90 MotilityAssayForceForceFunctions_v3.f90 MotilityAssayActin2MotorsMain_v9.f90", shell=True)
     #print ("=> Programs successfully compiled:\n%s " % files)
+    print("\n==========----------==========----------==========----------==========", file=open('pyout.txt','a'))
+    print(pc_hostname, file=open('pyout.txt','a')) # PC something
+    print(s.getsockname()[0], file=open('pyout.txt','a')) # IP something
+    print(new_dir, file=open('pyout.txt','a'))
+    print("Starting datetime: ", file=open('pyout.txt','a'))
+    print(datetime.datetime.now().strftime("%H:%M %d-%m-%Y"), file=open('pyout.txt','a'))
     tic=time.time()
     subprocess.call("ulimit -s unlimited;./a.out", shell=True)
     toc=time.time()
     tym=toc-tic
-    print("\nTotal time is sec. = ", file=open('pyout.txt','a'))
+    print("\nTotal time in sec: ", file=open('pyout.txt','a'))
     print(tym, file=open('pyout.txt','a'))
+    print("\nTotal time in hrs: ", file=open('pyout.txt','a'))
+    print(tym/3600, file=open('pyout.txt','a'))
+    print("\nEnding datetime: ", file=open('pyout.txt','a'))
+    print(datetime.datetime.now().strftime("%H:%M %d-%m-%Y"), file=open('pyout.txt','a'))
     print ("\n=> Programs in %s have successfully run complete!\n" % new_dir)
     simulation_runs = simulation_runs-1
     simulations_counter = simulations_counter+1 #simulation_counter for making dirs and prog. progress
@@ -84,6 +96,7 @@ while simulation_runs > 0:
 
 
 print("\n=> All the %s simulations are successfully completed.\nDone!\n" %simulations)
+print("\n==========----------==========-----END-----==========----------==========", file=open('pyout.txt','a'))
 
 
 for dirr in dir_arr:
@@ -91,25 +104,37 @@ for dirr in dir_arr:
     #==============================================
     try:
         os.system('python3 analysis.py')
-    except (Exception, e):
+    except Exception as e:
+        print(datetime.datetime.now().strftime("%H:%M %d-%m-%Y"), file=open('pyout.txt','a'))
+        print("\nANALYSIS ERROR: ", file=open('pyout.txt','a'))
+        print(e, file=open('pyout.txt','a'))
         print("Sorry, 'analysis.py' has an error.")
         pass
     #==============================================
     try:
         os.system('pvpython film1.py')
-    except (Exception, e):
+    except Exception as e:
+        print(datetime.datetime.now().strftime("%H:%M %d-%m-%Y"), file=open('pyout.txt','a'))
+        print("\nFILM1 ERROR: ", file=open('pyout.txt','a'))
+        print(e, file=open('pyout.txt','a'))
         print("Sorry, 'film1.py' has an error.")
         pass
     #==============================================
     try:
         os.system('pvpython film2.py')
-    except (Exception, e):
+    except Exception as e:
+        print(datetime.datetime.now().strftime("%H:%M %d-%m-%Y"), file=open('pyout.txt','a'))
+        print("\nFILM2 ERROR: ", file=open('pyout.txt','a'))
+        print(e, file=open('pyout.txt','a'))
         print("Sorry, 'film2.py' has an error.")
         pass
     #==============================================
     try:
         os.system('python3 tar.py')
-    except (Exception, e):
+    except Exception as e:
+        print(datetime.datetime.now().strftime("%H:%M %d-%m-%Y"), file=open('pyout.txt','a'))
+        print("\nTAR ERROR: ", file=open('pyout.txt','a'))
+        print(e, file=open('pyout.txt','a'))
         print("Sorry, 'tar.py' has an error.")
         pass
     #==============================================
