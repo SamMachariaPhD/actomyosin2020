@@ -76,7 +76,7 @@ while simulation_runs > 0:
     print(pc_hostname, file=open('pyout.txt','a')) # PC something
     print(s.getsockname()[0], file=open('pyout.txt','a')) # IP something
     print(new_dir, file=open('pyout.txt','a'))
-    print("Starting datetime: ", file=open('pyout.txt','a'))
+    print("Start datetime: ", file=open('pyout.txt','a'))
     print(datetime.datetime.now().strftime("%H:%M %d-%m-%Y"), file=open('pyout.txt','a'))
     tic=time.time()
     subprocess.call("ulimit -s unlimited;./a.out", shell=True)
@@ -86,8 +86,11 @@ while simulation_runs > 0:
     print(tym, file=open('pyout.txt','a'))
     print("\nTotal time in hrs: ", file=open('pyout.txt','a'))
     print(tym/3600, file=open('pyout.txt','a'))
-    print("\nEnding datetime: ", file=open('pyout.txt','a'))
+    print("\nTotal time in days: ", file=open('pyout.txt','a'))
+    print(tym/86400, file=open('pyout.txt','a'))
+    print("\nEnd datetime: ", file=open('pyout.txt','a'))
     print(datetime.datetime.now().strftime("%H:%M %d-%m-%Y"), file=open('pyout.txt','a'))
+    print("\n==========----------==========-----END-----==========----------==========", file=open('pyout.txt','a'))
     print ("\n=> Programs in %s have successfully run complete!\n" % new_dir)
     simulation_runs = simulation_runs-1
     simulations_counter = simulations_counter+1 #simulation_counter for making dirs and prog. progress
@@ -96,7 +99,6 @@ while simulation_runs > 0:
 
 
 print("\n=> All the %s simulations are successfully completed.\nDone!\n" %simulations)
-print("\n==========----------==========-----END-----==========----------==========", file=open('pyout.txt','a'))
 
 
 for dirr in dir_arr:
