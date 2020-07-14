@@ -72,7 +72,7 @@ while simulation_runs > 0:
     #print ("\n=> Simulation program started!: %s" % new_dir)
     subprocess.call("ifort mt.f90 MotilityAssayActin2MotorsParameters_v5.f90 MotilityAssayConfinements_v1.f90 MotilityAssaySubstrateDeformation_v2.f90 MotilityAssayForceForceFunctions_v3.f90 MotilityAssayActin2MotorsMain_v9.f90", shell=True)
     #print ("=> Programs successfully compiled:\n%s " % files)
-    print("\n==========----------==========----------==========----------==========", file=open('pyout.txt','a'))
+    print("\n==========----------==========-----START-----==========----------==========", file=open('pyout.txt','a'))
     print(pc_hostname, file=open('pyout.txt','a')) # PC something
     print(s.getsockname()[0], file=open('pyout.txt','a')) # IP something
     print(new_dir, file=open('pyout.txt','a'))
@@ -90,7 +90,7 @@ while simulation_runs > 0:
     print(tym/86400, file=open('pyout.txt','a'))
     print("\nEnd datetime: ", file=open('pyout.txt','a'))
     print(datetime.datetime.now().strftime("%H:%M %d-%m-%Y"), file=open('pyout.txt','a'))
-    print("\n==========----------==========-----END-----==========----------==========", file=open('pyout.txt','a'))
+    print("\n===========----------==========-----END-----==========----------===========", file=open('pyout.txt','a'))
     print ("\n=> Programs in %s have successfully run complete!\n" % new_dir)
     simulation_runs = simulation_runs-1
     simulations_counter = simulations_counter+1 #simulation_counter for making dirs and prog. progress
