@@ -11,7 +11,7 @@ INTEGER, PARAMETER ::		Range15 = SELECTED_INT_KIND(15), &
 				DP = SELECTED_REAL_KIND(14), &
 				NumAssay = 1, &
 				NumMol = 1, &
-				NumBeads = 13, &
+				NumBeads = 13.0, &
 				NumSpecies = 2, &		! 2Motors
 !				MaxAreaNum = 1000, &
 				MaxNumIteration=1E6, &
@@ -37,7 +37,7 @@ REAL(KIND = DP), PARAMETER :: 	pi = 3.14159265358979_DP, &
 				k_a = 40.0_DP,&
 				k_d0 = 350.0_DP,&
 				k_t = 2.0_DP,& ! /ATP[uM]
-				ATP = 2000.0_DP,& ![uM]
+				ATP = 1000.0_DP,& ![uM]
 				k_hp = 100.0_DP,&
 				k_hm = 10.0_DP,&
 				delta_x = -1.86E-3_DP,&
@@ -52,7 +52,7 @@ REAL(KIND = DP), PARAMETER :: 	pi = 3.14159265358979_DP, &
 
 !---External Force----------------------------------------------------
 				ExtForceDensity0 = 0.0_DP, & !pN/um
-				ExtForceMag = 60.0_DP, &
+				ExtForceMag = 20.0_DP, &
 !---Track Surface-----------------------------------------------------
 				XLimit = 500.0_DP, &
 				ChannelWidth = 0.1_DP, &
