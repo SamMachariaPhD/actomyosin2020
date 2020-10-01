@@ -43,7 +43,7 @@ REAL(KIND = DP), PARAMETER :: 	pi = 3.14159265358979_DP, &
 				delta_x = -1.86E-3_DP,&
 !
 				F_Motor_Detach1 = 9.2_DP,&
-				F_Motor_Detach2 = 2.0_DP,&
+				F_Motor_Detach2 = 9.2_DP,&
 				CaptureRadius=0.020_DP, &
 				Mergin4List = BondLength*1.5_DP,&
 				track_width = 4.0_DP ,&

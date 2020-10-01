@@ -1,4 +1,4 @@
-# Python 2
+# Python 2 -- pvpython
 # Find Filament, Specie1, Specie2, MotorSpecie1, and MotorSpecie2 .vtk files (Assay time steps)
 # Get the clean points (exact location) plottable in matplotlib
 # Save the points as .csv files

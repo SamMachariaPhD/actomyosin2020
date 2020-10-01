@@ -229,7 +229,7 @@ PROGRAM BEADRODPOLYMER
 
 
 !======================================================================================================================
-!============================== STEP 6: CALCULATE FORCES UPON BEADS AND MYOSINS =====================================
+!============================== STEP 6: CALCULATE FORCES UPON BEADS AND MYOSINS =======================================
 !======================================================================================================================		
 	
 	CALL CalculateForceMotor(X, Y, Z, XP, YP, ZP, ContactState, F_Motor_X, F_Motor_Y, F_Motor_Z, NumParticles, Elongation)						!8/16
