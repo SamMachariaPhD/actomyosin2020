@@ -58,5 +58,5 @@ echo "Regards, Sam Macharia"
 # source git_add.sh
 # git commit -m "some comment"
 # git push -u origin master
-# Regards, sirmaxford
+# Regards, Sam Macharia
 #===============================
