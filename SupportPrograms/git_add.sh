@@ -28,7 +28,7 @@
 
 git add .
 git commit -m 'new changes'
-git rm -r --cached .
+git rm -rf --cached .
 git add .
 
 # git add .
