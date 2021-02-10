@@ -29,6 +29,7 @@
 git add .
 git commit -m 'new changes'
 git rm -rf --cached .
+# git rm -rf --cached Analysis/ContactStates/*/
 git add .
 
 # git add .
