@@ -2,7 +2,7 @@
 Go inside paraview image output folder.
 Search for *.png
 Make *.avi out of the sorted *.png.
-Regards, Sam Sirmaxford.
+Regards, Sam Macharia
 """
 
 import cv2

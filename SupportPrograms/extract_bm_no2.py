@@ -2,7 +2,7 @@
 Go inside various complete simulation data.
 Search for IntParticle***.vtk
 Extract motor number
-Regards, Sam Sirmaxford.
+Regards, Sam Macharia
 """
 
 import os, glob, csv

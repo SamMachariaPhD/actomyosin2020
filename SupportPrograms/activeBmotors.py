@@ -1,7 +1,7 @@
 #Take intParticle and MotorSpecie1 in each case
 #Calculate how many motors are active out of the total binding motors
 #Confirm that the output shape is as expected
-#Regards, Sam Sirmaxford
+#Regards, Sam Macharia
 
 import os, glob, csv, time, sys
 import numpy as np

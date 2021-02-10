@@ -1,5 +1,5 @@
 # Perform terminal commands via ssh
-# Regards, Sirmaxford
+# Regards, Sam Macharia
 
 import os,sys
 

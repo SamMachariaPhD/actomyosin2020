@@ -3,7 +3,7 @@
 #---------------------------------------------------------------------------------------------
 # Input filament, active, and defective motor binding positions
 # Describe their binding behaviour
-# Regards, Sam Sirmaxford
+# Regards, Sam Macharia
 #---------------------------------------------------------------------------------------------
 
 

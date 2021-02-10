@@ -2,7 +2,7 @@
 Go inside various complete simulation data.
 Search for MotorSpecie1 or 2 _A001T***.vtk
 Extract total motor number
-Regards, Sam Sirmaxford.
+Regards, Sam Macharia
 """
 
 import os, glob, csv

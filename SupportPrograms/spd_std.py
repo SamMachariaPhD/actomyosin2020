@@ -2,7 +2,7 @@
 Go inside various complete simulation data.
 Search for conformation file.
 Compute the Head and Tail mean speeds and the standard deviations, and return the dataframe thereof.
-Regards, Sam Sirmaxford.
+Regards, Sam Macharia
 """
 
 import os, glob, csv

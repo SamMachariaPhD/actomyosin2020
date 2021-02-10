@@ -2,7 +2,7 @@
 Go inside various complete simulation data.
 Search for TipXY***.txt
 Copy and paste to some place with a new name.
-Regards, Sam Sirmaxford.
+Regards, Sam Macharia
 """
 
 import os, glob, shutil

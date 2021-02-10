@@ -1,0 +1,14 @@
+# Ignore some files
+# Sam Macharia
+*.csv # ignore all .csv files
+*.txt
+!notes.txt # do not ignore this particular file
+!param_set.txt
+*.mp4
+*.avi
+*.png
+*.html
+*.vtk
+*.svg
+*.pdf
+*.ipynb_checkpoints

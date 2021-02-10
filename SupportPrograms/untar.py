@@ -1,5 +1,5 @@
 # Untar files in the list
-# Regards, Sirmaxford.
+# Regards, Sam Macharia
 
 import tarfile, glob, os, sys
 

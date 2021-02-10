@@ -1,4 +1,5 @@
-# prepared by Sam. feel free to consult (sirmaxford@gmail.com).
+# Change parameters, simulate, and do preliminary analysis
+# Regards, Sam Macharia
 import fileinput, sys, shutil, os, time, socket, subprocess, datetime
 
 Dt = 5e-7

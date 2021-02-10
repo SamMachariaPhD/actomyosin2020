@@ -3,7 +3,7 @@
 #
 # Input binding motor contact position data.
 # Output a histogram(bar graph) of binding position vs. binding occurrence.
-# Regards, Sirmaxford
+# Regards, Sam Macharia
 
 import numpy as np
 import pandas as pd

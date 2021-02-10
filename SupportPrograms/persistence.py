@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # Plot persistence length graphs
-# Sam
+# Sam Macharia
 
 import io, csv, os
 import numpy as np

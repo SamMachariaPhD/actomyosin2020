@@ -1,7 +1,7 @@
 """
 Go inside various complete simulation data.
 Search for average in/active binding motors.
-Regards, Sam Sirmaxford.
+Regards, Sam Macharia
 """
 
 import os, glob, csv

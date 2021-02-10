@@ -2,7 +2,7 @@
 # Find Filament, Specie1, Specie2, MotorSpecie1, and MotorSpecie2 .vtk files (Assay time steps)
 # Get the clean points (exact location) plottable in matplotlib
 # Save the points as .csv files
-# Regards, Sirmaxford
+# Regards, Sam Macharia
 
 import os, glob, csv, sys
 from paraview.simple import *

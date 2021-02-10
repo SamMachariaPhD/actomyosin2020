@@ -1,7 +1,7 @@
 """
 Go inside various complete simulation data.
 Get persistence length.
-Regards, Sam Sirmaxford.
+Regards, Sam Macharia
 """
 
 import numpy as np

@@ -2,7 +2,7 @@
 Go inside various complete simulation data.
 Search for "v.csv".
 Compute the average speed, the deviation, and return the dataframe thereof.
-Regards, Sam Sirmaxford.
+Regards, Sam Macharia
 """
 
 import os, glob, csv

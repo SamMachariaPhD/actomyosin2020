@@ -1,5 +1,5 @@
 # Use conformation file to plot various speeds using various dt
-# Regards, Sirmaxford
+# Regards, Sam Macharia
 
 import numpy as np
 import pandas as pd

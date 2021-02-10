@@ -4,7 +4,7 @@
 # Get output data from bindingLifetime.py.
 # Exclude unwanted motors (motors not in question).
 # Make a movie using the binding motors in question.
-# Regards, Sirmaxford.
+# Regards, Sam Macharia
 
 
 import numpy as np

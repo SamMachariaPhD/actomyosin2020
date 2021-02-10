@@ -1,4 +1,5 @@
 # Plot lifetime histogram from bindingLifetime.py
+# Regards, Sam Macharia
 
 import numpy as np
 import pandas as pd

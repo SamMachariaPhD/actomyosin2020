@@ -1,4 +1,6 @@
-# prepared by Sam. feel free to consult (sirmaxford@gmail.com)
+# Prepare a zoomed simulation video
+# Regards Sam Macharia
+
 import fileinput, sys, shutil, os, time, socket, subprocess, glob
 from paraview.simple import *
 import pandas as pd

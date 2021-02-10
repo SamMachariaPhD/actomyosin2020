@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 # Various anlaysis
-# Regards, Sirmaxford
+# Regards, Sam Macharia
 
 import numpy as np
 import matplotlib.pyplot as plt

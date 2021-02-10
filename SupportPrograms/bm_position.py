@@ -4,7 +4,7 @@
 # Separate binding active(a) and inactive(i) motor position(pos)
 # Sort the points in ascending order
 # Save the points as ['apos','ipos'] .csv files
-# Regards, Sirmaxford
+# Regards, Sam Macharia
 
 import os, glob, csv
 import numpy as np
