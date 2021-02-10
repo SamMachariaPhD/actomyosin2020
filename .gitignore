@@ -4,6 +4,7 @@
 *.txt
 !notes.txt # do not ignore this particular file
 !param_set.txt
+Analysis/DOE/*/
 *.mp4
 *.avi
 *.png
