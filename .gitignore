@@ -6,6 +6,10 @@ Analysis/ContactStates/*/
 *.txt
 !notes.txt # do not ignore this particular file
 !param_set.txt
+!avi2mp4.txt
+!mergeAVI.txt
+!samba_setup.txt
+!MainCodeVariableNames.txt
 Analysis/AssayTimeSteps/*/
 Analysis/ATP_Speed/*/
 Analysis/BindingMotors/*/
