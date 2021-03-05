@@ -29,6 +29,7 @@ Analysis/Spring/*/
 Analysis/TangentForce/*/
 Analysis/Trajectories/*/
 Analysis/AssayTsSnapshot/*/
+Analysis/Correlation/*/
 *.mp4
 *.avi
 *.png
