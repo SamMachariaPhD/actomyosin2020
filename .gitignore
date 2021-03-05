@@ -28,6 +28,7 @@ Analysis/PullingAF/*/
 Analysis/Spring/*/
 Analysis/TangentForce/*/
 Analysis/Trajectories/*/
+Analysis/AssayTsSnapshot/*/
 *.mp4
 *.avi
 *.png
