@@ -35,4 +35,5 @@ Analysis/Trajectories/*/
 *.vtk
 *.svg
 *.pdf
+*.emf
 *.ipynb_checkpoints
